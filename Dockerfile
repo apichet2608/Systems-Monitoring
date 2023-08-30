@@ -35,7 +35,7 @@ CMD ["nginx", "-g", "daemon off;"]
 #docker build -t <images> .
 #docker run -p <PORT>:<PORT> --name <container> <images>
 
-# docker build -t Systems-Monitoring .
-# docker run -p 113:113 --name Systems-Monitoring-container Systems-Monitoring
+# docker build -t systems-monitoring .
+# docker run -p 113:113 --name systems-monitoring-container systems-monitoring
 
 
