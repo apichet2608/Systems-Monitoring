@@ -26,7 +26,7 @@ COPY --from=0 /app/dist /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # สำหรับการสื่อสารกับแอปพลิเคชัน React ที่ทำงานใน Docker container
-EXPOSE 113
+EXPOSE 114
 
 # รัน Nginx
 CMD ["nginx", "-g", "daemon off;"]
@@ -36,6 +36,6 @@ CMD ["nginx", "-g", "daemon off;"]
 #docker run -p <PORT>:<PORT> --name <container> <images>
 
 # docker build -t systems-monitoring .
-# docker run -p 113:113 --name systems-monitoring-container systems-monitoring
+# docker run -p 114:114 --name systems-monitoring-container systems-monitoring
 
 
