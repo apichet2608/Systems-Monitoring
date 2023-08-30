@@ -199,14 +199,21 @@ export default function CollapsibleTable({ datas }) {
   };
   const filteredItems = data.filter((item) => {
     return (
-      item.check_status.toLowerCase().includes(search.toLowerCase()) ||
-      item.task_name.toLowerCase().includes(search.toLowerCase()) ||
-      item.from_db.toLowerCase().includes(search.toLowerCase()) ||
-      item.to_db.toLowerCase().includes(search.toLowerCase()) ||
-      item.to_table.toLowerCase().includes(search.toLowerCase()) ||
-      item.start_datetime.toLowerCase().includes(search.toLowerCase()) ||
-      item.stop_datetime.toLowerCase().includes(search.toLowerCase()) ||
-      item.update_datetime.toLowerCase().includes(search.toLowerCase())
+      (item.check_status &&
+        item.check_status.toLowerCase().includes(search.toLowerCase())) ||
+      (item.task_name &&
+        item.task_name.toLowerCase().includes(search.toLowerCase())) ||
+      (item.from_db &&
+        item.from_db.toLowerCase().includes(search.toLowerCase())) ||
+      (item.to_db && item.to_db.toLowerCase().includes(search.toLowerCase())) ||
+      (item.to_table &&
+        item.to_table.toLowerCase().includes(search.toLowerCase())) ||
+      (item.start_datetime &&
+        item.start_datetime.toLowerCase().includes(search.toLowerCase())) ||
+      (item.stop_datetime &&
+        item.stop_datetime.toLowerCase().includes(search.toLowerCase())) ||
+      (item.update_datetime &&
+        item.update_datetime.toLowerCase().includes(search.toLowerCase()))
     );
   });
 
