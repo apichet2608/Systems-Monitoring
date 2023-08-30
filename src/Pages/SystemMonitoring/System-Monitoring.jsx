@@ -125,7 +125,12 @@ const Systems = () => {
                 </Typography>
               </CardContent>
               <CardActions onClick={() => handleClick(status.title)}>
-                <IconButton status={status.title} />
+                {status.title !== null ? (
+                  <IconButton status={status.title} />
+                ) : (
+                  // <IconButton status={"FAIL"} />
+                  <IconButton status={status.title} />
+                )}
               </CardActions>
             </Card>
           </Grid>
