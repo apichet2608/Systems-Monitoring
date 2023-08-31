@@ -60,9 +60,10 @@ const Systems = () => {
   };
 
   const fetchData3 = async () => {
+    console.log(dataquerry);
     try {
       const response = await fetch(
-        `http://10.17.77.111:3001/api/smart_status_data_script_transform/?task_status=${dataquerry}`
+        `http://10.17.77.111:3001/api/smart_status_data_script_transform/querry?task_status=${dataquerry}`
       );
       const jsonData = await response.json();
       console.log(jsonData);
@@ -72,14 +73,17 @@ const Systems = () => {
     }
   };
   const handleClick = (data) => {
+    console.log(data);
     setdataquerry(data);
   };
 
   useEffect(() => {
     setDataAPI([]);
     if (dataquerry !== "TOTAL") {
+      console.log("1");
       fetchData3();
     } else {
+      console.log("2");
       fetchData2();
     }
   }, [dataquerry]);
