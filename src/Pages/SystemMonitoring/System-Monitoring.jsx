@@ -35,7 +35,7 @@ const Systems = () => {
   const fetchData1 = async () => {
     try {
       const response = await fetch(
-        "http://127.0.0.1:3000/api/smart_status_data_script_transform/totalstatus"
+        "http://10.17.77.111:3001/api/smart_status_data_script_transform/totalstatus"
       );
       const jsonData = await response.json();
       console.log(jsonData);
@@ -49,7 +49,7 @@ const Systems = () => {
   const fetchData2 = async () => {
     try {
       const response = await fetch(
-        "http://127.0.0.1:3000/api/smart_status_data_script_transform"
+        "http://10.17.77.111:3001/api/smart_status_data_script_transform"
       );
       const jsonData = await response.json();
       console.log(jsonData);
@@ -63,7 +63,7 @@ const Systems = () => {
     console.log(dataquerry);
     try {
       const response = await fetch(
-        `http://127.0.0.1:3000/api/smart_status_data_script_transform/querry?task_status=${dataquerry}`
+        `http://10.17.77.111:3001/api/smart_status_data_script_transform/querry?task_status=${dataquerry}`
       );
       const jsonData = await response.json();
       console.log(jsonData);
