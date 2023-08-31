@@ -9,6 +9,7 @@ const statusColors = {
   Total: "#2E86C1",
   PASS: "#27AE60",
   FAIL: "#CB4335",
+  NULL: "#5D6D7E",
 };
 
 const IconButton = ({ status }) => {

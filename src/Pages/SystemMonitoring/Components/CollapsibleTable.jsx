@@ -15,6 +15,7 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import "./CSS/CollapsibleTable.css";
 import TextField from "@mui/material/TextField";
+
 function Row(props) {
   const { row } = props;
   const [open, setOpen] = useState(false);
@@ -31,11 +32,7 @@ function Row(props) {
             {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
           </IconButton>
         </TableCell>
-        <TableCell
-          component="th"
-          scope="row"
-          // sx={{ fontFamily: "'Jost', sans-serif" }}
-        >
+        <TableCell component="th" scope="row">
           {row.task_name}
         </TableCell>
         <TableCell align="right">{row.start_datetime}</TableCell>
@@ -55,22 +52,33 @@ function Row(props) {
                 : "inherit",
             textAlign: "center",
             borderRadius: "10px",
-            fontSize: 18,
+            fontSize: 15,
             fontWeight: "",
+            height: 20,
           }}
         >
           {row.check_status}
         </TableCell>
       </TableRow>
       <TableRow>
-        <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={9}>
+        <TableCell
+          style={{
+            padding: 1,
+          }}
+          colSpan={9}
+        >
           <Collapse in={open} timeout="auto" unmountOnExit>
             <Box sx={{ margin: 1 }}>
               <Typography
                 variant="h6"
                 gutterBottom
                 component="div"
-                sx={{ fontWeight: "bold", fontFamily: "'Jost', sans-serif" }}
+                sx={{
+                  fontWeight: "bold",
+                  fontFamily: "'Jost', sans-serif",
+                  fontSize: 16,
+                  marginInlineStart: 2,
+                }}
               >
                 Details
               </Typography>
@@ -219,7 +227,7 @@ export default function CollapsibleTable({ datas }) {
 
   return (
     <>
-      <Box display="flex" justifyContent="flex-end">
+      <Box display="flex" justifyContent="flex-end" marginRight={3}>
         <TextField
           label="Search"
           value={search}
@@ -228,7 +236,7 @@ export default function CollapsibleTable({ datas }) {
           size="small"
         />
       </Box>
-      <TableContainer component={Paper} sx={{ mt: "5px", maxHeight: 460 }}>
+      <TableContainer component={Paper} sx={{ mt: "5px", maxHeight: 670 }}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
             <TableRow>
@@ -239,8 +247,9 @@ export default function CollapsibleTable({ datas }) {
                   fontSize: 16,
                   fontWeight: "bold",
                   fontFamily: "'Jost', sans-serif",
+                  height: 20,
                 }}
-                style={{ background: "#EBEDEF" }}
+                style={{ background: "#EBEDEF", padding: "8px" }}
               >
                 Task Name
               </TableCell>
@@ -252,7 +261,7 @@ export default function CollapsibleTable({ datas }) {
                   fontWeight: "bold",
                   fontFamily: "'Jost', sans-serif",
                 }}
-                style={{ background: "#EBEDEF" }}
+                style={{ background: "#EBEDEF", padding: "8px" }}
               >
                 Start Datetime
               </TableCell>
@@ -264,7 +273,7 @@ export default function CollapsibleTable({ datas }) {
                   fontWeight: "bold",
                   fontFamily: "'Jost', sans-serif",
                 }}
-                style={{ background: "#EBEDEF" }}
+                style={{ background: "#EBEDEF", padding: "8px" }}
               >
                 Stop Datetime
               </TableCell>
@@ -276,7 +285,7 @@ export default function CollapsibleTable({ datas }) {
                   fontWeight: "bold",
                   fontFamily: "'Jost', sans-serif",
                 }}
-                style={{ background: "#EBEDEF" }}
+                style={{ background: "#EBEDEF", padding: "8px" }}
               >
                 Update Datetime
               </TableCell>
@@ -288,7 +297,7 @@ export default function CollapsibleTable({ datas }) {
                   fontWeight: "bold",
                   fontFamily: "'Jost', sans-serif",
                 }}
-                style={{ background: "#EBEDEF" }}
+                style={{ background: "#EBEDEF", padding: "8px" }}
               >
                 From Database
               </TableCell>
@@ -300,7 +309,7 @@ export default function CollapsibleTable({ datas }) {
                   fontWeight: "bold",
                   fontFamily: "'Jost', sans-serif",
                 }}
-                style={{ background: "#EBEDEF" }}
+                style={{ background: "#EBEDEF", padding: "8px" }}
               >
                 To Database
               </TableCell>
@@ -312,7 +321,7 @@ export default function CollapsibleTable({ datas }) {
                   fontWeight: "bold",
                   fontFamily: "'Jost', sans-serif",
                 }}
-                style={{ background: "#EBEDEF" }}
+                style={{ background: "#EBEDEF", padding: "8px" }}
               >
                 Table
               </TableCell>
@@ -324,7 +333,7 @@ export default function CollapsibleTable({ datas }) {
                   fontWeight: "bold",
                   fontFamily: "'Jost', sans-serif",
                 }}
-                style={{ background: "#EBEDEF" }}
+                style={{ background: "#EBEDEF", padding: "8px" }}
               >
                 Check Status
               </TableCell>

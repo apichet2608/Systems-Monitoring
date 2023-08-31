@@ -50,11 +50,11 @@ const MiniDrawer = () => {
   const getPageTitle = () => {
     switch (location.pathname) {
       case "/systems-monituring":
-        return "system-monituring";
+        return "System Monitoring";
       case "/":
-        return "Smart Page";
+        return "System Monitoring";
       default:
-        return "Smart Page";
+        return "System Monitoring";
     }
   };
 

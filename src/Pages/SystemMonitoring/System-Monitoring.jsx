@@ -35,7 +35,7 @@ const Systems = () => {
   const fetchData1 = async () => {
     try {
       const response = await fetch(
-        "http://10.17.77.111:3001/api/smart_status_data_script_transform/totalstatus"
+        "http://127.0.0.1:3000/api/smart_status_data_script_transform/totalstatus"
       );
       const jsonData = await response.json();
       console.log(jsonData);
@@ -49,7 +49,7 @@ const Systems = () => {
   const fetchData2 = async () => {
     try {
       const response = await fetch(
-        "http://10.17.77.111:3001/api/smart_status_data_script_transform"
+        "http://127.0.0.1:3000/api/smart_status_data_script_transform"
       );
       const jsonData = await response.json();
       console.log(jsonData);
@@ -63,7 +63,7 @@ const Systems = () => {
     console.log(dataquerry);
     try {
       const response = await fetch(
-        `http://10.17.77.111:3001/api/smart_status_data_script_transform/querry?task_status=${dataquerry}`
+        `http://127.0.0.1:3000/api/smart_status_data_script_transform/querry?task_status=${dataquerry}`
       );
       const jsonData = await response.json();
       console.log(jsonData);
@@ -74,7 +74,11 @@ const Systems = () => {
   };
   const handleClick = (data) => {
     console.log(data);
-    setdataquerry(data);
+    if (data === null) {
+      setdataquerry("NULL");
+    } else {
+      setdataquerry(data);
+    }
   };
 
   useEffect(() => {
@@ -94,11 +98,9 @@ const Systems = () => {
         <Grid item xl={12}>
           <DrawerHeader />
         </Grid>
-        <Grid item xl={12} sx={{ fontSize: 20 }}>
-          <h1>System Monitoring</h1>
-        </Grid>
+        {/* <Grid item xl={12}></Grid> */}
         {data.map((status, index) => (
-          <Grid item xl={1.3} key={index}>
+          <Grid item xl={1.2} key={index}>
             <Card
               sx={{ backgroundColor: "#F4F6F6", borderRadius: "16px" }}
               onClick={() => handleClick(status.title)}
@@ -129,8 +131,8 @@ const Systems = () => {
                 </Typography>
               </CardContent>
               <CardActions onClick={() => handleClick(status.title)}>
-                {status.title !== null ? (
-                  <IconButton status={status.title} />
+                {status.title === null ? (
+                  <IconButton status={"NULL"} />
                 ) : (
                   // <IconButton status={"FAIL"} />
                   <IconButton status={status.title} />
